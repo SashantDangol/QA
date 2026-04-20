@@ -74,7 +74,7 @@ test.describe('Contact testcases', () => {
 
 });
 test.describe('Contact testcases',() => {
-    test.only('Contact Delete test',async({ page, request })=>{
+    test('Contact Delete test',async({ page, request })=>{
         const Data = {
             "firstName": "ram",
             "lastName": "Dangol",
