@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { LoginPage } from '../page/login.po.js';
 import { ContactPage } from '../page/contact.po.js';
-import { authenticateUser, createEntity } from '../Util/helper.spec.js';
+import { authenticateUser, createEntity, deleteEntity, validateEntity, getEntity } from '../Util/helper.spec.js';
 import testData from '../fixtures/loginFixture.json';
 import contactTestData from '../fixtures/contactFixture.json';
 let accessToken
@@ -92,7 +92,7 @@ test.describe('Contact testcases',() => {
         await createEntity(Data,accessToken, '/contacts',{request});
         page.reload();
         await contact.viewContact();
-        await
+        const id = await getEntity(accessToken, '/contacts','200',{request});
         await contact.contactDelete();
         await validateEntity(accessToken, `/contacts/${id}`,'404',{request});
     })

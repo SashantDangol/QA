@@ -53,10 +53,7 @@ async function createEntity(userData, accessToken, module, { request }) {
         return null;
     }
 }
-module.exports = {
-    authenticateUser,
-    createEntity
-};
+
 async function deleteEntity(entityId, accessToken, module, { request }) {
     const apiUrl = await getApiBaseUrl();
     const headers = {
@@ -102,3 +99,10 @@ async function getEntity(accessToken, module, status, { request }) {
         return null;
     }
 }   
+module.exports = {
+    authenticateUser,
+    createEntity,
+    deleteEntity,
+    validateEntity,
+    getEntity
+};
